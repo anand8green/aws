@@ -15,6 +15,7 @@ export default function WelcomeScreen({ navigation }) {
                 toValue: 60,
                 duration: 60000,
                 useNativeDriver: true,
+                easing: Easing.linear
 
             })
         ).start()
@@ -23,7 +24,8 @@ export default function WelcomeScreen({ navigation }) {
             op, {
             toValue: 0,
             duration: 60000,
-            useNativeDriver: true
+            useNativeDriver: true,
+            easing: Easing.linear
         })).start()
 
     }, [])

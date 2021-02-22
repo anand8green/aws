@@ -4,8 +4,12 @@ import HomeScreen from './Components/HomeScreen'
 import WelcomeScreen from './Components/WelcomeScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+import { withAuthenticator } from 'aws-amplify-react-native'
+Amplify.configure(config)
 
-export default function App() {
+function App() {
 
   const Stack = createStackNavigator();
 
@@ -28,3 +32,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
+
+
+export default withAuthenticator(App)
