@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "mrapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmrapp858cac05",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

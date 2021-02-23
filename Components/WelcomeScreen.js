@@ -6,17 +6,20 @@ import Video from 'react-native-video';
 export default function WelcomeScreen({ navigation }) {
 
     const top = useRef(new Animated.Value(1)).current
-    const op = useRef(new Animated.Value(0.8)).current
+    const op = useRef(new Animated.Value(0.4)).current
+
+    const topTwo = useRef(new Animated.Value(1)).current
+    const opTwo = useRef(new Animated.Value(0.4)).current
 
     useEffect(() => {
+
         Animated.loop(
             Animated.timing(
                 top, {
                 toValue: 60,
                 duration: 60000,
                 useNativeDriver: true,
-                easing: Easing.linear
-
+                easing: Easing.ease
             })
         ).start()
 
@@ -25,7 +28,30 @@ export default function WelcomeScreen({ navigation }) {
             toValue: 0,
             duration: 60000,
             useNativeDriver: true,
-            easing: Easing.linear
+            easing: Easing.ease
+
+        })).start()
+
+        Animated.loop(
+            Animated.timing(
+                topTwo, {
+                toValue: 60,
+                delay: 30000,
+                duration: 60000,
+                useNativeDriver: true,
+                easing: Easing.ease
+
+            })
+        ).start()
+
+        Animated.loop(Animated.timing(
+            opTwo, {
+            toValue: 0,
+            delay: 30000,
+            duration: 60000,
+            useNativeDriver: true,
+            easing: Easing.ease
+
         })).start()
 
     }, [])
@@ -43,6 +69,14 @@ export default function WelcomeScreen({ navigation }) {
             }]
             } >
             </Animated.View>
+
+            <Animated.View style={[styles.dot, {
+                opacity: opTwo,
+                transform: [{ scale: topTwo }]
+            }]
+            } >
+            </Animated.View>
+
         </View>
 
     )

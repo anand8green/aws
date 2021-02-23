@@ -1,0 +1,12 @@
+projects:
+  mrapp:
+    schemaPath: Users/anandkumar/Documents/Learning/mr/mrapp/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: /Users/anandkumar/Documents/Learning/mr/mrapp/graphql
